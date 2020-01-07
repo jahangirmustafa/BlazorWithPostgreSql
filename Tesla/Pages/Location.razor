@@ -1,0 +1,52 @@
+﻿@page "/location"
+
+@inject Tesla.Business.Services.ILocationService service
+
+<h3>Location</h3>
+
+@if (locations == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+
+    <button class="btn btn-primary" @onclick="AddLocation">Add Location</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var location in locations)
+            {
+                <tr>
+                    <td>@location.Id</td>
+                    <td>@location.City</td>
+                    <td>@location.Address</td>
+                    <td>@location.Country</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Tesla.Data.Entities.Location> locations;
+
+    protected override async Task OnInitializedAsync()
+    {
+        locations = await service.GetLocationAsync();
+    }
+
+    private async Task AddLocation()
+    {
+        var result = await service.AddLocationAsync();
+        await OnInitializedAsync();
+    }
+}
+
