@@ -1,0 +1,37 @@
+﻿@page "/review"
+@using Tesla.Models
+@inject IJSRuntime JSRuntime;
+@inject Tesla.Business.Services.IReviewService service
+
+<h3>Review</h3>
+
+@*<button class="btn btn-primary" @onclick="AddReview">Submit</button>*@
+
+
+<EditForm Model="@model" OnValidSubmit="@AddReview">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    @*<InputText id="name" @bind-Value="model.Content" />*@
+    <InputTextArea class="form-control " rows="3" placeholder="Reivew" id="content" @bind-Value="model.Content" />
+
+    <button type="submit" class="btn btn-primary mt-1">Submit</button>
+</EditForm>
+
+
+
+@code {
+
+    private ReviewModel model = new ReviewModel();
+
+
+    private async Task AddReview()
+    {
+        var result = await service.Add(model.Content);
+        model.Content = string.Empty;
+
+        await JSRuntime.InvokeAsync<string>(
+            "review.showAlert", "Review added successfully"
+            );
+    }
+}

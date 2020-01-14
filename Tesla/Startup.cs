@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +35,7 @@ namespace Tesla
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddTransient<ILocationService, LocationService>();
-            //services.AddSingleton<LocationManager>();
+            services.AddTransient<IReviewService, ReviewService>();            
 
             var connectionString = Configuration["PostgreSql:ConnectionString"];
             var dbPassword = Configuration["PostgreSql:DbPassword"];
@@ -46,6 +47,9 @@ namespace Tesla
 
             services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(builder.ConnectionString, 
                                                         x => x.MigrationsAssembly("Tesla") ));
+
+            services.AddAutoMapper(typeof(Startup));
+            services.AddControllersWithViews();
             
         }
 

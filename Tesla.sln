@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesla", "Tesla\Tesla.csproj", "{96E2BDD7-6062-48B4-8993-2DD26AB2881D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tesla", "Tesla\Tesla.csproj", "{96E2BDD7-6062-48B4-8993-2DD26AB2881D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesla.Data", "Tesla.Data\Tesla.Data.csproj", "{392F47E9-0EF5-4D5B-B2CF-069D30722B22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tesla.Data", "Tesla.Data\Tesla.Data.csproj", "{392F47E9-0EF5-4D5B-B2CF-069D30722B22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesla.Business", "Tesla.Business\Tesla.Business.csproj", "{544FB3EE-00C5-407B-8D34-6B605B0B367E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tesla.Business", "Tesla.Business\Tesla.Business.csproj", "{544FB3EE-00C5-407B-8D34-6B605B0B367E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
